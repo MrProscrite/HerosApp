@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <ion-slides class="carrossel" [options]="slidesHeaderOptions">
+      <ion-slide *ngFor="let hero of  top3">
+        <img src={{hero.images.xs}} [routerLink]="'/hero/' + hero.id">
+      </ion-slide>
+      <ion-slide *ngFor="let hero of top1">
+        <img src={{hero.images.xs}} [routerLink]="'/hero/' + hero.id">
+      </ion-slide>
+      <ion-slide *ngFor="let hero of top2">
+        <img src={{hero.images.xs}} [routerLink]="'/hero/' + hero.id">
+      </ion-slide>
+  </ion-slides>
+
+  
+  <div *ngFor="let editora of publisher">
+    <div class="nome-editora ion-padding">
+      <span>{{editora.name}}</span>
+    </div>
+    <ion-slides [options]="slidesOptions" *ngIf="getHeros(editora.name).length === 0">
+      <ion-slide *ngFor="let hero of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+        <img src="/assets/images/default-md.png">
+      </ion-slide>
+    </ion-slides>
+    <ion-slides [options]="slidesOptions" *ngIf="getHeros(editora.name).length > 0">
+      <ion-slide *ngFor="let hero of getHeros(editora.name)">
+        <img src="{{hero.images.md}}" [routerLink]="'/hero/' + hero.id">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  
+</ion-content>

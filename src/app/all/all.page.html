@@ -1,0 +1,31 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <div class="search">
+      <ion-searchbar mode="md" id="custom-search" placeholder="Procurar personagem" animated (ionChange)="buscarHero($event)"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="heros.length === 0">
+    <!--class="results" *ngFor="let hero of heros | filtro: busca" [routerLink]="'/hero/' + [hero.name]" [detail]="false" lines="none">-->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let hero of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+            <img src="/assets/images/default-md.png">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  <ion-list *ngIf="heros.length > 0">
+  <!--class="results" *ngFor="let hero of heros | filtro: busca" [routerLink]="'/hero/' + [hero.name]" [detail]="false" lines="none">-->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let hero of heros | filtro: busca" [routerLink]="'/hero/' + [hero.id]">
+          <img src="{{hero.images.md}}">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+</ion-content>

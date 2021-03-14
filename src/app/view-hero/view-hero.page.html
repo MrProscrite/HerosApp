@@ -1,0 +1,39 @@
+<ion-content [scrollEvents]="true" *ngFor="let hero of heros" (ionScroll)="onScroll($event)">
+  <div #header class="header">
+    <ion-buttons>
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+  </div>
+  <div class="mainposter" style="background-image: url({{hero.images.lg}});">
+    <div class="degrade top"></div>
+    <div class="degrade bottom"></div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12"><span>{{hero.name}}</span></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="content">
+    <span>Nome completo: {{hero.biography.fullName}}</span> <br> <br>
+
+    <span>Biografia </span> <br> <br>
+    <span>Local de nascimento: {{hero.biography.placeOfBirth}}</span> <br>
+    <span>Apelidos: {{hero.biography.aliases}}</span> <br>
+    <span>Alter Ego: {{hero.biography.alterEgos}}</span> <br>
+    <span>Emprego: {{hero.work.occupation}}</span> <br>
+    <span>Grupos: {{hero.connections.groupAffiliation}}</span> <br>
+    <span>Parentes: {{hero.connections.relatives}}</span> <br>
+    <span>Primeira aparição: {{hero.biography.firstAppearance}}</span> <br>
+    <span>Editora: {{hero.biography.editora}}</span> <br>
+    <span>Alinhamento: {{hero.biography.alignment}}</span> <br> <br>
+
+    <span>Estatísticas de Poder</span> <br> <br>
+    <span>Inteligência: {{hero.powerstats.intelligence}}</span> <br>
+    <span>Força: {{hero.powerstats.strength}}</span> <br>
+    <span>Velocidade: {{hero.powerstats.speed}}</span> <br>
+    <span>Durabilidade: {{hero.powerstats.durability}}</span> <br> 
+    <span>Poder: {{hero.powerstats.power}}</span> <br> 
+    <span>Combate: {{hero.powerstats.combat}}</span> <br> <br>
+  </div>
+</ion-content>
+
